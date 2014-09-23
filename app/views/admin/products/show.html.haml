@@ -1,0 +1,20 @@
+%div
+  %label Product Title
+  = @product.title
+%div
+  %label Product Description
+  = @product.desc
+%div
+  %label Product Price
+  = @product.price
+%div
+  %label Category
+  = @product.category.title
+%div
+  %label Product picture
+  = image_tag @product.photo.url, class: "img-thumbnail"
+
+
+= link_to 'Edit', edit_admin_product_path(@product)
+\|
+= link_to 'Back', admin_products_path

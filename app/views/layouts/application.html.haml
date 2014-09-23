@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title Pharmacy
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body{class:"container"}
+    = render "layouts/header"
+    = yield

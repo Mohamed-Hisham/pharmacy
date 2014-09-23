@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Pharmacy Dashboard
+    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %div{id: "wrapper"}
+      = render "layouts/header_admin"
+      %div{id: "page-wrapper", style:"min-height: 960px;"}
+        = render "layouts/flash_messages"
+        = yield

@@ -1,0 +1,15 @@
+%h1 All categories
+
+%table
+  %tr
+    %th Category
+
+  - @categories.each do |category|
+    %tr
+      %td= category.title
+      %td= link_to 'Edit', edit_admin_category_path(category)
+      %td= link_to 'Destroy', [:admin, category], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Category', new_admin_category_path

@@ -1,0 +1,34 @@
+%nav.navbar.navbar-default.navbar-static-top{:role => "navigation"}
+  / Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => "#"} Pharmacy Dashboard
+  / Collect the nav links, forms, and other content for toggling
+  .navbar-default.sidebar
+    - if admin_signed_in?
+      #bs-example-navbar-collapse-1.collapse.sidebar-nav.navbar-collapse
+        %ul.nav{id:"side-menu"}
+          %li.active
+            = link_to admin_offers_path do
+              %i{class: "fa fa-fire"}
+              Offers
+          %li
+            = link_to admin_products_path do
+              %i{class: "fa fa-cubes"}
+              Products
+          %li
+            = link_to admin_categories_path do
+              %i{class: "fa fa-th"}
+              Categories
+  .nav.navbar-top-links.navbar-right
+    %label= current_admin.email
+    %li
+      = link_to destroy_admin_session_path do
+        %i{class: "fa fa-sign-out"}
+        Log out
+  / /.navbar-collapse
+/ /.container-fluid
