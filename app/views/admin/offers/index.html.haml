@@ -1,4 +1,4 @@
-%h1 Listing offers
+%h1 All offers
 
 %table
   %tr
@@ -8,10 +8,10 @@
 
   - @offers.each do |offer|
     %tr
-      %td= link_to 'Show', offer
-      %td= link_to 'Edit', edit_offer_path(offer)
+      %td= link_to 'Show', [:admin, offer]
+      %td= link_to 'Edit', edit_admin_offer_path(offer)
       %td= link_to 'Destroy', offer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Offer', new_offer_path
+= link_to 'New Offer', new_admin_offer_path

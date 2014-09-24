@@ -1,9 +1,10 @@
 %h1 All categories
 
-%table
+%table{class: "table table-hover table-striped table-condensed"}
   %tr
     %th Category
-
+    %th
+    %th
   - @categories.each do |category|
     %tr
       %td= category.title

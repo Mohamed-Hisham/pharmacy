@@ -1,10 +1,23 @@
-= form_for @offer do |f|
+= form_for [:admin, @offer] do |f|
   - if @offer.errors.any?
     #error_explanation
       %h2= "#{pluralize(@offer.errors.count, "error")} prohibited this offer from being saved:"
       %ul
         - @offer.errors.full_messages.each do |msg|
           %li= msg
+  .form-group
+    = f.label "Offer Title", class: "control-label"
+    = f.text_field :title, placeholder: "Offer Title", class: "form-control"
 
-  .actions
-    = f.submit 'Save'
+  .form-group
+    = f.label "Offer Description", class: "control-label"
+    = f.text_field :desc, placeholder: "Offer Description", class: "form-control"
+
+  .form-group
+    = f.label "Expiry Date", class: "control-label"
+    .input-group.date{id:"datetimepicker"}
+      = f.text_field :expiry_date, class: "form-control", data: {behaviour: :datepicker}
+      %span{class:"input-group-addon"}
+        %span{class: "fa fa-calendar"}
+  .form-group
+    = f.submit 'Save', class: "btn btn-primary"

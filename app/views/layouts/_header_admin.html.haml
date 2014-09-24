@@ -6,7 +6,7 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %a.navbar-brand{:href => "#"} Pharmacy Dashboard
+    %a.navbar-brand{:href => admin_path(current_admin)} Pharmacy Dashboard
   / Collect the nav links, forms, and other content for toggling
   .navbar-default.sidebar
     - if admin_signed_in?
@@ -25,10 +25,11 @@
               %i{class: "fa fa-th"}
               Categories
   .nav.navbar-top-links.navbar-right
-    %label= current_admin.email
-    %li
-      = link_to destroy_admin_session_path do
-        %i{class: "fa fa-sign-out"}
-        Log out
+    - if admin_signed_in?
+      %label= current_admin.email
+      %li
+        = link_to destroy_admin_session_path do
+          %i{class: "fa fa-sign-out"}
+          Log out
   / /.navbar-collapse
 / /.container-fluid

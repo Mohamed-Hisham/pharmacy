@@ -1,6 +1,7 @@
 jQuery ->
   $("a[rel~=popover], .has-popover").popover()
   $("a[rel~=tooltip], .has-tooltip").tooltip()
+  $("#datetimepicker").datetimepicker()
   setTimeout (->
     $(".alert-dismissable").fadeTo(500, 0).slideUp 500, ->
       $ @remove()
